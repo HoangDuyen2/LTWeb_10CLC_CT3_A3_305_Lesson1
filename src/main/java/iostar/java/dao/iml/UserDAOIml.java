@@ -56,6 +56,18 @@ public class UserDAOIml implements IUserDAO {
     }
 
     @Override
+    public void updateUser(UserModel user) {
+        String sql = "UPDATE Users SET password = ? where username = ?";
+        try {
+            Connection conn = new DBConnectionSQLServer().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(2, user.getUsername());
+            ps.setString(1, user.getPassword());
+            ps.executeUpdate();
+        } catch (Exception e) {e.printStackTrace();}
+    }
+
+    @Override
     public boolean checkExistUserName(String userName) {
         boolean check = false;
         String query = "select * from [Users] where username = ?";

@@ -56,7 +56,7 @@ public class RegisterController extends HttpServlet {
             req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
             return;
         }
-        boolean isSuccess = service.checkRegister(username, password, phone, fullname, image);
+        boolean isSuccess = service.checkRegister(username, password, phone, fullname, image,"Register");
         if (isSuccess) {
             req.setAttribute("alert", alertMsg);
             resp.sendRedirect(req.getContextPath() + "/login");

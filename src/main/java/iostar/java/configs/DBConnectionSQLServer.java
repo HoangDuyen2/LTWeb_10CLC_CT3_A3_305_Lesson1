@@ -25,8 +25,8 @@ public class DBConnectionSQLServer {
     public static void main(String[] args) {
         try {
             IUserDAO userService = new UserDAOIml();
-            userService.insertUser(new UserModel("ca","123","Nguyen Trong Ca","032423534","nguyentrongca",
-                    java.sql.Date.valueOf(java.time.LocalDate.now()),3));
+            userService.updateUser(new UserModel("hao","1234","","","",
+                    java.sql.Date.valueOf(java.time.LocalDate.now()),0));
         } catch (Exception e) {
             e.printStackTrace();
         }

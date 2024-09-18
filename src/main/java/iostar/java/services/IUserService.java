@@ -7,7 +7,8 @@ public interface IUserService {
     UserModel login(String userName, String password);
     UserModel register(UserModel userModel);
     void insertUser(UserModel userModel);
-    boolean checkRegister(String userName, String password, String phone, String fullname, String image);
+    void updateUser(UserModel userModel);
+    boolean checkRegister(String userName, String password, String phone, String fullname, String image, String method);
     boolean checkExistUserName(String userName);
     boolean checkExistPhone(String phone);
 }

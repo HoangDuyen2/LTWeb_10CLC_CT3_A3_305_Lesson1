@@ -30,18 +30,29 @@ public class UserServiceImpl implements IUserService {
         return null;
     }
 
+
     @Override
     public void insertUser(UserModel userModel) {
         userDAO.insertUser(userModel);
     }
 
     @Override
-    public boolean checkRegister(String userName, String password, String phone, String fullname, String image) {
-        if (userDAO.checkExistUserName(userName)) {
-            return false;
-        }
+    public void updateUser(UserModel userModel) {
+        userDAO.updateUser(userModel);
+    }
+
+    @Override
+    public boolean checkRegister(String userName, String password, String phone, String fullname, String image, String method) {
         java.sql.Date date = java.sql.Date.valueOf(java.time.LocalDate.now());
-        userDAO.insertUser(new UserModel(userName,password, fullname, phone,image,date,3));
+        if(method.equals("Register")){
+            if (userDAO.checkExistUserName(userName)) {
+                return false;
+            }
+            userDAO.insertUser(new UserModel(userName,password, fullname, phone,image,date,3));
+        }
+        if(method.equals("Forgot")){
+            userDAO.updateUser(new UserModel(userName,password,fullname,phone,image,date,0));
+        }
         return true;
     }
 

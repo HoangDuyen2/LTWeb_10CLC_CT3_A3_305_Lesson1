@@ -7,6 +7,7 @@ public interface IUserDAO {
 //    Kiểm tra thông tin có trong csdl không và trả về user đó
     UserModel findByUsername(String username);
     void insertUser(UserModel user);
+    void updateUser(UserModel user);
     boolean checkExistUserName(String userName);
     boolean checkExistPhone(String phone);
 }

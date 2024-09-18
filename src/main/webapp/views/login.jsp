@@ -108,7 +108,7 @@
 
     <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="Registerbtn" style="background-color: burlywood" onclick="redirectToRegister()">Register</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <span class="psw">Forgot <a href="resetpassword.jsp">password?</a></span>
     </div>
 
     <script>
