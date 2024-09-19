@@ -59,7 +59,7 @@ public class RegisterController extends HttpServlet {
         boolean isSuccess = service.checkRegister(username, password, phone, fullname, image,"Register");
         if (isSuccess) {
             req.setAttribute("alert", alertMsg);
-            resp.sendRedirect(req.getContextPath() + "/login");
+            resp.sendRedirect(req.getContextPath() + "/views/login.jsp");
         } else {
             alertMsg = "System error!";
             req.setAttribute("alert", alertMsg);

@@ -44,6 +44,7 @@ public class ResetPasswordController extends HttpServlet {
         boolean isSuccess = iUserService.checkRegister(username,password,"","","","Forgot");
         if(isSuccess) {
             req.setAttribute("alert", alertMsg);
+            System.out.println(req.getContextPath());
             resp.sendRedirect(req.getContextPath() + "/login");
         } else {
             alertMsg = "System error!";
