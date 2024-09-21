@@ -96,12 +96,11 @@
         <input type="text" placeholder="Enter images" name="image" id="image" required>
 
         <hr>
-        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
         <button type="submit" class="registerbtn">Register</button>
     </div>
 
     <div class="container signin">
-        <p>Already have an account? <a href="#">Sign in</a>.</p>
+        <p>Already have an account? <a href="/Lesson1s_war_exploded/views/login.jsp">Sign in</a>.</p>
     </div>
 </form>
 </body>
