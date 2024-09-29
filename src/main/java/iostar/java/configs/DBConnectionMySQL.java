@@ -1,31 +1,29 @@
 package iostar.java.configs;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnectionMySQL {
-    private static String USERNAME = "root";
-    private static String PASSWORD = "1234";
-    private static String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static String URL = "jdbc:mysql://localhost:3306/users";
+    public static String url = "jdbc:mysql://localhost:3306/ltweb01";
+    public static String user = "root";
+    public static String password = "1234";
+    public static String driver = "com.mysql.jdbc.Driver";
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() {
         try {
-            Class.forName(DRIVER);
-            return DriverManager.getConnection(URL,USERNAME,PASSWORD);
-        } catch (ClassNotFoundException e) {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            return DriverManager.getConnection(url,user,password);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-//Test chương trình. Kích phải chuột chọn run as->java application
     public static void main(String[] args) {
         try {
             new DBConnectionMySQL();
-            System.out.println(DBConnectionMySQL.getConnection());
-        }catch(Exception e) {
+            System.out.println(getConnection());
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
