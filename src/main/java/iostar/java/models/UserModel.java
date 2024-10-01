@@ -2,15 +2,15 @@ package iostar.java.models;
 
 import java.util.Date;
 
-public class Users {
+public class UserModel {
     private int user_id;
     private String fullName;
     private String address;
 
-    public Users(){}
-    public Users(String phone, Date createDate, int role_id,
-                 String images, String password, String username,
-                 String address, String fullName) {
+    public UserModel(){}
+    public UserModel(String phone, Date createDate, int role_id,
+                     String images, String password, String username,
+                     String address, String fullName) {
         this.phone = phone;
         this.createDate = createDate;
         this.role_id = role_id;

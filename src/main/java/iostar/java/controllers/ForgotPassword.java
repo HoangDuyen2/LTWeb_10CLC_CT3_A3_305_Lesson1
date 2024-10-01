@@ -1,6 +1,6 @@
 package iostar.java.controllers;
 
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 import iostar.java.services.IUserServices;
 import iostar.java.services.impl.UserServices;
 import jakarta.servlet.ServletException;
@@ -42,7 +42,7 @@ public class ForgotPassword extends HttpServlet {
             req.getRequestDispatcher("/views/forgot-password.jsp").forward(req, resp);
         }
 
-        Users users = new Users();
+        UserModel users = new UserModel();
         users.setUsername(username);
         users.setPassword(password);
 

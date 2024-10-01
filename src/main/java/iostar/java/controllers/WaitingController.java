@@ -1,6 +1,6 @@
 package iostar.java.controllers;
 
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,16 +16,16 @@ public class WaitingController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         if(session.getAttribute("account") != null) {
-            Users user = (Users) session.getAttribute("account");
+            UserModel user = (UserModel) session.getAttribute("account");
             req.setAttribute("account", user.getFullName());
             if(user.getRole_id() == 1){
-                req.getRequestDispatcher("/admin/home").forward(req, resp);
+                resp.sendRedirect(req.getContextPath()+"/admin/home");
             }
             else if(user.getRole_id() == 2){
-                req.getRequestDispatcher("/manager/home").forward(req, resp);
+                resp.sendRedirect(req.getContextPath()+"/manager/home");
             }
             else if(user.getRole_id() == 3){
-                req.getRequestDispatcher("/user/home").forward(req, resp);
+                resp.sendRedirect(req.getContextPath()+"/user/home");
             }
         }
         else {

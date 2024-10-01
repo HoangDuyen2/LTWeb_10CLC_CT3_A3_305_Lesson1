@@ -1,12 +1,12 @@
 package iostar.java.services.impl;
 
 import iostar.java.daos.IUserDAO;
-import iostar.java.daos.impl.UserDAO;
-import iostar.java.models.Users;
+import iostar.java.daos.impl.UserDAOImpl;
+import iostar.java.models.UserModel;
 import iostar.java.services.IUserServices;
 
 public class UserServices implements IUserServices {
-    IUserDAO userDAO = new UserDAO();
+    IUserDAO userDAO = new UserDAOImpl();
     @Override
     public boolean checkExistingUsername(String username) {
         return userDAO.checkExistingUsername(username);
@@ -18,7 +18,7 @@ public class UserServices implements IUserServices {
     }
 
     @Override
-    public boolean createUser(Users user) {
+    public boolean createUser(UserModel user) {
         if(!userDAO.checkExistingUsername(user.getUsername())&&!userDAO.checkExistingPhone(user.getPhone())){
             userDAO.createUser(user);
             return true;
@@ -36,7 +36,7 @@ public class UserServices implements IUserServices {
     }
 
     @Override
-    public Users login(String username, String password) {
+    public UserModel login(String username, String password) {
         return userDAO.login(username, password);
     }
 }

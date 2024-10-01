@@ -2,7 +2,7 @@ package iostar.java.daos.impl;
 
 import iostar.java.configs.DBConnectionMySQL;
 import iostar.java.daos.IUserDAO;
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class UserDAO extends DBConnectionMySQL implements IUserDAO {
+public class UserDAOImpl extends DBConnectionMySQL implements IUserDAO {
     public Connection connection ;
     public PreparedStatement ps;
     @Override
@@ -52,7 +52,7 @@ public class UserDAO extends DBConnectionMySQL implements IUserDAO {
     }
 
     @Override
-    public void createUser(Users user) {
+    public void createUser(UserModel user) {
         String sql = "INSERT INTO users(fullname, address, username, password, images, rode_id, createdate, phone) VALUES(?,?,?,?,?,?,?,?)";
         try {
             connection = getConnection();
@@ -92,7 +92,7 @@ public class UserDAO extends DBConnectionMySQL implements IUserDAO {
     }
 
     @Override
-    public Users login(String username, String password) {
+    public UserModel login(String username, String password) {
         String sql = "select * from users where username = ? and password = ?";
         try {
             connection = getConnection();
@@ -101,7 +101,7 @@ public class UserDAO extends DBConnectionMySQL implements IUserDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Users user = new Users();
+                UserModel user = new UserModel();
                 user.setFullName(rs.getString("fullname"));
                 user.setAddress(rs.getString("address"));
                 user.setUsername(rs.getString("username"));

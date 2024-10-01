@@ -1,11 +1,11 @@
 package iostar.java.models;
 
-public class Roles {
+public class RoleModel {
     private int role_id;
     private String roleName;
 
-    public Roles() {}
-    public Roles(String roleName) {
+    public RoleModel() {}
+    public RoleModel(String roleName) {
         this.roleName = roleName;
     }
 

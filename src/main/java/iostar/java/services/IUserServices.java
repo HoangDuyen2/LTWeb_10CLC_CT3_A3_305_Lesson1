@@ -1,11 +1,11 @@
 package iostar.java.services;
 
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 
 public interface IUserServices {
     public boolean checkExistingUsername(String username);
     public boolean checkExistingPhone(String phone);
-    public boolean createUser(Users user);
+    public boolean createUser(UserModel user);
     public boolean updatePassword(String username, String newPassword);
-    public Users login(String username,String password);
+    public UserModel login(String username, String password);
 }

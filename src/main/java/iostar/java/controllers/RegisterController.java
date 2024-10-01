@@ -1,6 +1,6 @@
 package iostar.java.controllers;
 
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 import iostar.java.services.IUserServices;
 import iostar.java.services.impl.UserServices;
 import jakarta.servlet.ServletException;
@@ -70,7 +70,7 @@ public class RegisterController extends HttpServlet {
         }
 
         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
-        Users user = new Users(phone,date,3,image,password,username,address,fullname);
+        UserModel user = new UserModel(phone,date,3,image,password,username,address,fullname);
 
         if(userServices.createUser(user)) {
             resp.sendRedirect(req.getContextPath()+"/login");

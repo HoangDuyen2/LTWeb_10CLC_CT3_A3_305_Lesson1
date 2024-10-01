@@ -1,6 +1,6 @@
 package iostar.java.controllers;
 
-import iostar.java.models.Users;
+import iostar.java.models.UserModel;
 import iostar.java.services.IUserServices;
 import iostar.java.services.impl.UserServices;
 import jakarta.servlet.ServletException;
@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
             return;
         }
 
-        Users user = userServices.login(username, password);
+        UserModel user = userServices.login(username, password);
 
         if(user != null){
             HttpSession session = req.getSession(true);

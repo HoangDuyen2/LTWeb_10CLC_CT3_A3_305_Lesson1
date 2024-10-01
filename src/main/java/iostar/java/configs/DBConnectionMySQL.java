@@ -12,7 +12,7 @@ public class DBConnectionMySQL {
 
     public static Connection getConnection() {
         try {
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             return DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {
             e.printStackTrace();
